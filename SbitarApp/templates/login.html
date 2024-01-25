@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sing in  Form -->
+        <section class="login">
+            <div class="container">
+                <div class="login-content">
+                    <div class="img">
+                        <figure><img src="{% static 'images/img.jpg'%}" alt="login image"></figure>
+                        <!-- <a href="#" class="img-link">Home</a> -->
+                    </div>
+
+                    <div class="login-form">
+                        <h2 class="form-title">LOGIN</h2>
+                        <form method="POST" class="register-form" id="login-form" action="{% url 'homePage' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="your_ID"></label>
+                                <input type="text" name="your_ID" id="your_ID" placeholder="Your ID"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"></label>
+                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                            </div>
+                            
+                            <div class="form-group form-button">
+
+                                <input type="submit" name="login" id="login" class="form-submit" value="Log in"/>
+
+                            </div>
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
