@@ -3,7 +3,6 @@
 <html>
 
 
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +23,6 @@
 	<!-- jvectormap -->
 	<link rel="stylesheet" href="{% static 'css/jquery-jvectormap.css'%}">
 
-
 	<script src="{% static 'js/modernizr.min.js'%}"></script>
 </head>
 
@@ -32,7 +30,7 @@
 	<div class="wrapper">
 		<!-- Page Content -->
 		<div id="content">
-			<!-- Top Navigation -->
+				<!-- Top Navigation -->
 			<div class="container top-brand">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
@@ -86,7 +84,7 @@
 									<a class="dropdown-item" href="{% url 'Patients'%}">All Patients</a>
 								</div>
 							</li>
-							<li class="nav-item dropdown active">
+							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 									aria-haspopup="true" aria-expanded="false"><span class="ti-user"></span> Doctors</a>
 								<div class="dropdown-menu">
@@ -94,7 +92,7 @@
 									<a class="dropdown-item" href="{% url 'doctors' %}">All Doctors</a>
 								</div>
 							</li>
-							<li class="nav-item dropdown">
+							<li class="nav-item dropdown active">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 									aria-haspopup="true" aria-expanded="false"><span class="ti-pencil-alt"></span>
 									Appointments</a>
@@ -118,26 +116,26 @@
 				</nav>
 			</div>
 			<!-- /Menu -->
-			<!-- Breadcrumb -->
-			<!-- Page Title -->
-			<div class="container mt-0">
-				<div class="row breadcrumb-bar">
-					<div class="col-md-6">
-						<h3 class="block-title">Add Doctor</h3>
-					</div>
-					<div class="col-md-6">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="index.html">
-									<span class="ti-home"></span>
-								</a>
-							</li>
-							<li class="breadcrumb-item">Doctors</li>
-							<li class="breadcrumb-item active">Add Doctor</li>
-						</ol>
+				<!-- Breadcrumb -->
+				<!-- Page Title -->
+				<div class="container mt-0">
+					<div class="row breadcrumb-bar">
+						<div class="col-md-6">
+							<h3 class="block-title">Add Appointment</h3>
+						</div>
+						<div class="col-md-6">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="index.html">
+										<span class="ti-home"></span>
+									</a>
+								</li>
+								<li class="breadcrumb-item">Appointments</li>
+								<li class="breadcrumb-item active">Add Appointment</li>
+							</ol>
+						</div>
 					</div>
 				</div>
-			</div>
 			<!-- /Page Title -->
 
 			<!-- /Breadcrumb -->
@@ -148,87 +146,78 @@
 					<!-- Widget Item -->
 					<div class="col-md-12">
 						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">Add Doctor</h3>
-							<form method="post" action="{% url 'addDoctor'%}">
-								{% csrf_token %}
-
+							<h3 class="widget-title">Add Appointment</h3>
+							<form>
 								<div class="form-row">
 									<div class="form-group col-md-6">
-										<label for="Doctor-name">Doctor Name</label>
-										<input type="text" class="form-control" placeholder="Doctor name"
-											id="Doctor-name" name="name">
+										<label for="patient-name">Patient ID</label>
+										<input type="text" class="form-control" placeholder="Patient ID" id="patient-id">
 									</div>
 									<div class="form-group col-md-6">
-										<label for="Doctor-name">Doctor Last Name</label>
-										<input type="text" class="form-control" placeholder="Doctor name"
-											id="Doctor-name" name="last_name">
-									</div>
-									<div class="form-group col-md-6">
-										<label for="specialization">Specialization</label>
-										<input type="text" placeholder="Specialization" class="form-control"
-											id="specialization" name="specialty">
-									</div>
-									<div class="form-group col-md-6">
-										<label for="experience">Experience</label>
-										<input type="text" placeholder="Experience" class="form-control" id="experience"
-											name="experience">
-									</div>
-									<div class="form-group col-md-6">
-										<label for="dob">Date Of Birth</label>
-										<input type="date" placeholder="Date of Birth" class="form-control" id="dob"
-											name="dob">
-									</div>
-									<div class="form-group col-md-6">
-										<label for="phone">Phone</label>
-										<input type="text" placeholder="Phone" class="form-control" id="phone"
-											name="phone_number">
-									</div>
-									<div class="form-group col-md-6">
-										<label for="email">Email</label>
-										<input type="email" placeholder="email" class="form-control" id="Email"
-											name="email">
-									</div>
-									<div class="form-group col-md-6">
-										<label for="gender">Gender</label>
-										<select class="form-control" id="gender" name="gender">
-											<option>Male</option>
-											<option>Female</option>
+										<label for="department">Department</label>
+										<select class="form-control" id="department">
+											<option>Neuro</option>
+											<option>Ortho</option>
+											<option>General</option>
 										</select>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="doctor-name">Doctor Name</label>
+										<input type="text" placeholder="Doctor Name" class="form-control" id="doctor-name">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="appointment-date">Appointment Date</label>
+										<input type="date" placeholder="Appointment Date" class="form-control" id="appointment-date">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="time-slot">Time Slot</label>
+										<select class="form-control" id="time-slot">
+											<option>10AM-11AM</option>
+											<option>11AM-12pm</option>
+											<option>12PM-01PM</option>
+											<option>2PM-3PM</option>
+											<option>3PM-4PM</option>
+											<option>4PM-5PM</option>
+											<option>6PM-7PM</option>
+											<option>7PM-8PM</option>
+											<option>8PM-9PM</option>
+										</select>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="token-number">Token Number <small>(Auto Generated)</small></label>
+										<input type="text" placeholder="Token Number" class="form-control" id="token-number">
+									</div>
+									<div class="form-group col-md-12">
+										<label for="problem">Problem</label>
+										<textarea placeholder="Problem" class="form-control" id="problem" rows="3"></textarea>
+									</div>
+																		
+									<div class="form-check col-md-12 mb-2">
+										<div class="text-left">
+											<div class="custom-control custom-checkbox">
+												<input class="custom-control-input" type="checkbox" id="ex-check-2">
+												<label class="custom-control-label" for="ex-check-2">Please Confirm</label>
+											</div>
+										</div>
 									</div>
 									<div class="form-group col-md-6 mb-3">
 										<button type="submit" class="btn btn-primary btn-lg">Submit</button>
 									</div>
 								</div>
 							</form>
-							{% if messages %}
-							<ul class="messages">
-								{% for message in messages %}
-								<li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-									{% endfor %}
-							</ul>
-							{% endif %}
-
 							<!-- Alerts-->
-							{% if messages %}
-							{% for message in messages %}
-							{% if 'success' in message.tags %}
 							<div class="alert alert-success alert-dismissible fade show" role="alert">
-								<strong>Successfully Done!</strong> Please Check in doctors list
+								<strong>Successfully Done!</strong> Appointment token Generated
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">×</span>
 								</button>
 							</div>
-							{% endif %}
-							{% if 'error' in message.tags %}
 							<div class="alert alert-warning alert-dismissible fade show" role="alert">
 								<strong>Holy guacamole!</strong> You should check in on some of those fields below.
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">×</span>
 								</button>
 							</div>
-							{% endif %}
-							{% endfor %}
-							{% endif %}
 							<!-- /Alerts-->
 						</div>
 					</div>
@@ -251,12 +240,10 @@
 	<!-- Bootstrap Library-->
 	<script src="{% static 'js/bootstrap.min.js'%}"></script>
 
-
 	<!-- Custom Script-->
 	<script src="{% static 'js/custom.js'%}"></script>
 
 </body>
-
 
 
 </html>
