@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,11 +153,15 @@
 										<input type="text" class="form-control" placeholder="Patient ID" id="patient-id">
 									</div>
 									<div class="form-group col-md-6">
-										<label for="department">Department</label>
-										<select class="form-control" id="department">
-											<option>Neuro</option>
-											<option>Ortho</option>
+										<label for="Service">Service</label>
+										<select class="form-control" id="Service">
+											<option>Neurology</option>
+											<option>Cardiology</option>
+											<option>ENT</option>
+											<option>Rheumatology</option>
+											<option>Urology</option>
 											<option>General</option>
+											<option>Orthopedics</option>
 										</select>
 									</div>
 									<div class="form-group col-md-6">
@@ -172,20 +175,16 @@
 									<div class="form-group col-md-6">
 										<label for="time-slot">Time Slot</label>
 										<select class="form-control" id="time-slot">
+											<option>6AM-7AM</option>
+											<option>7AM-8AM</option>
+											<option>8AM-9AM</option>
 											<option>10AM-11AM</option>
 											<option>11AM-12pm</option>
 											<option>12PM-01PM</option>
 											<option>2PM-3PM</option>
 											<option>3PM-4PM</option>
 											<option>4PM-5PM</option>
-											<option>6PM-7PM</option>
-											<option>7PM-8PM</option>
-											<option>8PM-9PM</option>
 										</select>
-									</div>
-									<div class="form-group col-md-6">
-										<label for="token-number">Token Number <small>(Auto Generated)</small></label>
-										<input type="text" placeholder="Token Number" class="form-control" id="token-number">
 									</div>
 									<div class="form-group col-md-12">
 										<label for="problem">Problem</label>
@@ -225,6 +224,7 @@
 				</div>
 			</div>
 			<!-- /Main Content -->
+			
 		</div>
 		<!-- /Page Content -->
 	</div>
@@ -244,6 +244,7 @@
 	<script src="{% static 'js/custom.js'%}"></script>
 
 </body>
+
 
 
 </html>
