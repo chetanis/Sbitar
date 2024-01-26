@@ -55,18 +55,19 @@
 	<div class="wrapper">
 		<!-- Page Content -->
 		<div id="content">
-				<!-- Top Navigation -->
+			<!-- Top Navigation -->
 			<div class="container top-brand">
-				<nav class="navbar navbar-default">			
+				<nav class="navbar navbar-default">
 					<div class="navbar-header">
-						<div class="sidebar-header"> <a href="index.html"><img src="{% static 'images/img.png'%}" class="logo" alt="logo"></a>
+						<div class="sidebar-header"> <a href="index.html"><img src="{% static 'images/img.png'%}"
+									class="logo" alt="logo"></a>
 						</div>
 					</div>
 					<ul class="nav justify-content-end">
 						<li class="nav-item">
 							<a class="nav-link">
 								<span title="Fullscreen" class="ti-fullscreen fullscreen"></span>
-							</a>							
+							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" data-toggle="modal" data-target=".proclinic-modal-lg">
@@ -83,7 +84,8 @@
 										<div class="modal-body">
 											<form>
 												<div class="form-group">
-													<input type="text" class="form-control" id="search-term" placeholder="Type text here">
+													<input type="text" class="form-control" id="search-term"
+														placeholder="Type text here">
 													<button type="button" class="btn btn-lorvens proclinic-bg">
 														<span class="ti-location-arrow"></span> Search</button>
 												</div>
@@ -94,8 +96,8 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-							 aria-expanded="false">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+								aria-haspopup="true" aria-expanded="false">
 								<span class="ti-announcement"></span>
 							</a>
 							<div class="dropdown-menu proclinic-box-shadow2 notifications animated flipInY">
@@ -111,8 +113,8 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-							 aria-expanded="false">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+								aria-haspopup="true" aria-expanded="false">
 								<span class="ti-user"></span>
 							</a>
 							<div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
@@ -126,32 +128,38 @@
 							</div>
 						</li>
 					</ul>
-			
+
 				</nav>
 			</div>
 			<!-- /Top Navigation -->
 			<!-- Menu -->
 			<div class="container menu-nav">
 				<nav class="navbar navbar-expand-lg proclinic-bg text-white">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
 						<span class="ti-menu text-white"></span>
 					</button>
-			
+
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item dropdown ">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-home"></span> Dashboard</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-home"></span>
+									Dashboard</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical/index.html">Vertical</a>
-									<a class="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical-RTL/index.html">Vertical RTL</a>
+									<a class="dropdown-item"
+										href="https://www.konnectplugins.com/proclinic/Vertical/index.html">Vertical</a>
+									<a class="dropdown-item"
+										href="https://www.konnectplugins.com/proclinic/Vertical-RTL/index.html">Vertical
+										RTL</a>
 									<a class="dropdown-item" href="index.html">Horizantal</a>
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-wheelchair"></span> Patients</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-wheelchair"></span>
+									Patients</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="add-patient.html">Add Patient</a>
 									<a class="dropdown-item" href="patients.html">All Patients</a>
@@ -160,8 +168,8 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown active">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-user"></span> Doctors</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-user"></span> Doctors</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{% url 'addDoctor' %}">Add Doctor</a>
 									<a class="dropdown-item" href="doctors.html">All Doctors</a>
@@ -170,8 +178,9 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-pencil-alt"></span> Appointments</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-pencil-alt"></span>
+									Appointments</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="add-appointment.html">Add Appointment</a>
 									<a class="dropdown-item" href="appointments.html">All Appointments</a>
@@ -180,8 +189,9 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-money"></span> Payments</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-money"></span>
+									Payments</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="add-payment.html">Add Payment</a>
 									<a class="dropdown-item" href="payments.html">All Payments</a>
@@ -189,8 +199,9 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-key"></span> Room Allotments</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-key"></span> Room
+									Allotments</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="add-room.html">Add Room Allotment</a>
 									<a class="dropdown-item" href="rooms.html">All Rooms</a>
@@ -198,8 +209,9 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-layout-tab"></span> UI Kit</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-layout-tab"></span> UI
+									Kit</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="typography.html">Typography</a>
 									<a class="dropdown-item" href="buttons.html">Buttons</a>
@@ -210,7 +222,8 @@
 									<a class="dropdown-item" href="lists.html">Lists &amp; Media Object</a>
 									<a class="dropdown-item" href="grid.html">Grid</a>
 									<a class="dropdown-item" href="progress-bars.html">Progress Bars</a>
-									<a class="dropdown-item" href="notifications-alerts.html">Notifications &amp; Alerts</a>
+									<a class="dropdown-item" href="notifications-alerts.html">Notifications &amp;
+										Alerts</a>
 									<a class="dropdown-item" href="pagination.html">Pagination</a>
 									<a class="dropdown-item" href="carousel.html">Carousel</a>
 									<a class="dropdown-item" href="tables.html"> Tables</a>
@@ -224,8 +237,9 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-file"></span> Other Pages</a>
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+									aria-haspopup="true" aria-expanded="false"><span class="ti-file"></span> Other
+									Pages</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="login.html">Login </a>
 									<a class="dropdown-item" href="sign-up.html">Sign Up</a>
@@ -241,26 +255,26 @@
 				</nav>
 			</div>
 			<!-- /Menu -->
-				<!-- Breadcrumb -->
-				<!-- Page Title -->
-				<div class="container mt-0">
-					<div class="row breadcrumb-bar">
-						<div class="col-md-6">
-							<h3 class="block-title">Add Doctor</h3>
-						</div>
-						<div class="col-md-6">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="index.html">
-										<span class="ti-home"></span>
-									</a>
-								</li>
-								<li class="breadcrumb-item">Doctors</li>
-								<li class="breadcrumb-item active">Add Doctor</li>
-							</ol>
-						</div>
+			<!-- Breadcrumb -->
+			<!-- Page Title -->
+			<div class="container mt-0">
+				<div class="row breadcrumb-bar">
+					<div class="col-md-6">
+						<h3 class="block-title">Add Doctor</h3>
+					</div>
+					<div class="col-md-6">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="index.html">
+									<span class="ti-home"></span>
+								</a>
+							</li>
+							<li class="breadcrumb-item">Doctors</li>
+							<li class="breadcrumb-item active">Add Doctor</li>
+						</ol>
 					</div>
 				</div>
+			</div>
 			<!-- /Page Title -->
 
 			<!-- /Breadcrumb -->
@@ -274,71 +288,84 @@
 							<h3 class="widget-title">Add Doctor</h3>
 							<form method="post" action="{% url 'addDoctor'%}">
 								{% csrf_token %}
-								
+
 								<div class="form-row">
 									<div class="form-group col-md-6">
 										<label for="Doctor-name">Doctor Name</label>
-										<input type="text" class="form-control" placeholder="Doctor name" id="Doctor-name" name="name">
+										<input type="text" class="form-control" placeholder="Doctor name"
+											id="Doctor-name" name="name">
 									</div>
 									<div class="form-group col-md-6">
 										<label for="Doctor-name">Doctor Last Name</label>
-										<input type="text" class="form-control" placeholder="Doctor name" id="Doctor-name" name="last_name">
+										<input type="text" class="form-control" placeholder="Doctor name"
+											id="Doctor-name" name="last_name">
 									</div>
-                                    <div class="form-group col-md-6">
+									<div class="form-group col-md-6">
 										<label for="specialization">Specialization</label>
-										<input type="text" placeholder="Specialization" class="form-control" id="specialization" name="specialty">
+										<input type="text" placeholder="Specialization" class="form-control"
+											id="specialization" name="specialty">
 									</div>
 									<div class="form-group col-md-6">
 										<label for="experience">Experience</label>
-										<input type="text" placeholder="Experience" class="form-control" id="experience">
+										<input type="text" placeholder="Experience" class="form-control" id="experience"
+											name="experience">
 									</div>
 									<div class="form-group col-md-6">
 										<label for="dob">Date Of Birth</label>
-										<input type="date" placeholder="Date of Birth" class="form-control" id="dob">
-                                    </div>
+										<input type="date" placeholder="Date of Birth" class="form-control" id="dob"
+											name="dob">
+									</div>
 									<div class="form-group col-md-6">
 										<label for="phone">Phone</label>
-										<input type="text" placeholder="Phone" class="form-control" id="phone" name="phone_number">
+										<input type="text" placeholder="Phone" class="form-control" id="phone"
+											name="phone_number">
 									</div>
 									<div class="form-group col-md-6">
 										<label for="email">Email</label>
-										<input type="email" placeholder="email" class="form-control" id="Email">
+										<input type="email" placeholder="email" class="form-control" id="Email"
+											name="phone_number">
 									</div>
 									<div class="form-group col-md-6">
 										<label for="gender">Gender</label>
-										<select class="form-control" id="gender">
+										<select class="form-control" id="gender" name="gender">
 											<option>Male</option>
 											<option>Female</option>
-											<option>Other</option>
 										</select>
-									</div>
-																		
-									<div class="form-check col-md-12 mb-2">
-										<div class="text-left">
-											<div class="custom-control custom-checkbox">
-												<input class="custom-control-input" type="checkbox" id="ex-check-2">
-												<label class="custom-control-label" for="ex-check-2">Please Confirm</label>
-											</div>
-										</div>
 									</div>
 									<div class="form-group col-md-6 mb-3">
 										<button type="submit" class="btn btn-primary btn-lg">Submit</button>
 									</div>
 								</div>
 							</form>
+							{% if messages %}
+							<ul class="messages">
+								{% for message in messages %}
+								<li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+									{% endfor %}
+							</ul>
+							{% endif %}
+
 							<!-- Alerts-->
+							{% if messages %}
+							{% for message in messages %}
+							{% if 'success' in message.tags %}
 							<div class="alert alert-success alert-dismissible fade show" role="alert">
 								<strong>Successfully Done!</strong> Please Check in doctors list
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">×</span>
 								</button>
 							</div>
+							{% endif %}
+							{% if 'error' in message.tags %}
 							<div class="alert alert-warning alert-dismissible fade show" role="alert">
 								<strong>Holy guacamole!</strong> You should check in on some of those fields below.
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">×</span>
 								</button>
 							</div>
+							{% endif %}
+							{% endfor %}
+							{% endif %}
 							<!-- /Alerts-->
 						</div>
 					</div>
@@ -359,12 +386,12 @@
 	<!-- Popper Library-->
 	<script src="{% static 'js/popper.min.js'%}"></script>
 	<!-- Bootstrap Library-->
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
-    
-    <!-- Datatable  -->
+	<script src="{% static 'js/bootstrap.min.js'%}"></script>
+
+	<!-- Datatable  -->
 	<script src="datatable/jquery.dataTables.min.js"></script>
 	<script src="datatable/dataTables.bootstrap4.min.js"></script>
-    
+
 	<!-- Custom Script-->
 	<script src="{% static 'js/custom.js'%}"></script>
 
