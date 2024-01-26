@@ -2,8 +2,8 @@ import os
 from django.contrib import messages
 from django.shortcuts import render
 import logging
-from .forms import DoctorForm, PatientForm
-from .models import Doctor, Patient
+from .forms import DoctorForm, PatientForm,AppointmentForm
+from .models import Appointment, Doctor, Patient
 # Create your views here.
 
 def login(request):
@@ -71,22 +71,21 @@ def addPatient(request):
         return render(request, template_path, context)
 
 def allAppointmentsPage(request):
-    # patients = Patient.objects.all()
-    # context = {'doctors': patients}
-    context={}
+    appointments = Appointment.objects.all()
+    context = {'appointments': appointments}
     template_path ='appointments.html'
     return render(request, template_path, context)
 
 def addAppointments(request):
     if request.method == 'POST':
-        form = PatientForm(request.POST)
+        form = AppointmentForm(request.POST)
         if form.is_valid():
             form.save()
-            form = PatientForm()
+            form = AppointmentForm()
             messages.success(request, 'appointment added successfully!')
         else:
             messages.error(request, 'Form submission error.')
-        template_path ='add-patient.html'
+        template_path ='add-appointment.html'
         return render(request, template_path, {'form': form})
     else:
         context = {}
