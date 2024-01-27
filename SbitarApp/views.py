@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.shortcuts import render , get_object_or_404
 import logging
 from .forms import DoctorForm, PatientForm,AppointmentForm, ResultForm, RoomAllotmentForm
-from .models import Appointment, Doctor, Patient, RoomAllotment
+from .models import Appointment, Doctor, Patient, Result, RoomAllotment
 # Create your views here.
 
 def calculate_age(birth_date, current_date):
@@ -119,7 +119,10 @@ def patientDetails(request,patient_id):
     birth_date = patient.dob
     current_date = date.today()
     age = calculate_age(birth_date, current_date)
-    context = {'patient': patient,'age':age}
+
+    results = Result.objects.filter(appointment__patient__id=patient_id)
+
+    context = {'patient': patient,'age':age ,'results':results}
     template_path ='about-patient.html'
     return render(request, template_path, context)
 
@@ -176,6 +179,9 @@ def addResult(request):
     appointments = Appointment.objects.filter(status='pending')
     context = {'appointments': appointments}
     if request.method == 'POST':
+        appointment_id = request.POST.get('appointment')
+        appointment = Appointment.objects.filter(id=appointment_id)
+        appointment.update(status='Completed')
         form = ResultForm(request.POST)
         if form.is_valid():
             form.save()

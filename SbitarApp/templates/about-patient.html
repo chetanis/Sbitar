@@ -229,29 +229,21 @@
 											<th>Doctor Name</th>
 											<th>Service</th>
 											<th>Visit Date</th>
-											<th>Status</th>
 											<th>Diagnostique</th>
 											<th>Traitement</th>
 										</tr>
 									</thead>
 									<tbody>
+										{%for result in results%}
 										<tr>
-											<td>kesh whd</td>
-											<td>Gastro</td>
-											<td>12-03-2018</td>
-											<td>Resheduled</td>
-											<td>appendicite</td>
-											<td>nahoha</td>
+											<td>{{result.appointment.doctor.last_name}} {{result.appointment.doctor.name}}</td>
+											<td>{{result.appointment.service}}</td>
+											<td>{{result.appointment.appointment_date}}</td>
+											<td>{{result.diagnostique}}</td>
+											<td>{{result.traitement}}</td>
 
 										</tr>
-										<tr>
-											<td>kesh whda</td>
-											<td>Ortho</td>
-											<td>13-10-2018</td>
-											<td>Post-Operation</td>
-											<td>3adma MKsra</td>
-											<td>le platre w tchrob paracetamol</td>
-										</tr>
+										{%endfor%}
 
 									</tbody>
 								</table>
