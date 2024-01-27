@@ -1,3 +1,4 @@
+from datetime import date
 from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import render
@@ -5,6 +6,9 @@ import logging
 from .forms import DoctorForm, PatientForm,AppointmentForm, RoomAllotmentForm
 from .models import Appointment, Doctor, Patient, RoomAllotment
 # Create your views here.
+def calculate_age(birth_date, current_date):
+    age = current_date.year - birth_date.year - ((current_date.month, current_date.day) < (birth_date.month, birth_date.day))
+    return age
 
 def login(request):
     context = {}
@@ -80,9 +84,13 @@ def addPatient(request):
 
 def patientDetails(request,patient_id):
     patient = Patient.objects.get(id=patient_id)
-    context = {'patient': patient}
+    birth_date = patient.dob
+    current_date = date.today()
+    age = calculate_age(birth_date, current_date)
+    context = {'patient': patient,'age':age}
     template_path ='about-patient.html'
     return render(request, template_path, context)
+
 
 def allAppointmentsPage(request):
     appointments = Appointment.objects.all()
