@@ -24,4 +24,6 @@ urlpatterns = [
     path('homePage/add-room',views.allotRoom,name='addRoom'),
     path('homePage/rooms',views.allRoomsPage,name='rooms'),
 
+    path('homePage/result',views.addResult,name='result'),
+
 ]

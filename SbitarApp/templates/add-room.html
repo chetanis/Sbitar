@@ -31,7 +31,7 @@
 	<div class="wrapper">
 		<!-- Page Content -->
 		<div id="content">
-				<!-- Top Navigation -->
+			<!-- Top Navigation -->
 			<div class="container top-brand">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
@@ -46,13 +46,8 @@
 								<span class="ti-user"></span>
 							</a>
 							<div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
-								<h5>John Willing</h5>
-								<a class="dropdown-item" href="#">
-									<span class="ti-settings"></span> Settings</a>
-								<a class="dropdown-item" href="#">
-									<span class="ti-help-alt"></span> Help</a>
-								<a class="dropdown-item" href="#">
-									<span class="ti-power-off"></span> Logout</a>
+								<h5>Admin</h5>
+								<a class="dropdown-item" href="#"> Logout</a>
 							</div>
 						</li>
 					</ul>
@@ -72,13 +67,13 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item ">
-								<a class="nav-link " href="{% url 'homePage' %}" role="button" aria-haspopup="true"
-									aria-expanded="false"><span class="ti-home"></span>
+								<a class="nav-link " href="{% url 'homePage' %}" role="button"
+									aria-haspopup="true" aria-expanded="false">
 									Dashboard</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-									aria-haspopup="true" aria-expanded="false"><span class="ti-wheelchair"></span>
+									aria-haspopup="true" aria-expanded="false">
 									Patients</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{% url 'addPatient'%}">Add Patient</a>
@@ -87,15 +82,15 @@
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-									aria-haspopup="true" aria-expanded="false"><span class="ti-user"></span> Doctors</a>
+									aria-haspopup="true" aria-expanded="false"> Doctors</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{% url 'addDoctor' %}">Add Doctor</a>
 									<a class="dropdown-item" href="{% url 'doctors' %}">All Doctors</a>
 								</div>
 							</li>
-							<li class="nav-item dropdown ">
+							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-									aria-haspopup="true" aria-expanded="false"><span class="ti-pencil-alt"></span>
+									aria-haspopup="true" aria-expanded="false">
 									Appointments</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{% url 'addAppointment'%}">Add Appointment</a>
@@ -104,12 +99,17 @@
 							</li>
 							<li class="nav-item dropdown active">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-									aria-haspopup="true" aria-expanded="false"><span class="ti-key"></span> Room
+									aria-haspopup="true" aria-expanded="false"> Room
 									Allotments</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{% url 'addRoom'%}">Add Room Allotment</a>
 									<a class="dropdown-item" href="{% url 'rooms'%}">All Rooms</a>
 								</div>
+							</li>
+							<li class="nav-item ">
+								<a class="nav-link " href="{% url 'result' %}" role="button"
+									aria-haspopup="true" aria-expanded="false">
+									Result</a>
 							</li>
 						</ul>
 					</div>

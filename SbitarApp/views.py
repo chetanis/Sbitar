@@ -169,3 +169,18 @@ def allotRoom(request):
             logging.debug(form.errors)
             messages.error(request, 'Form submission error.')
     return render(request, template_path, context)
+
+
+def addResult(request):
+    template_path ='result.html'
+    appointments = Appointment.objects.filter(status='pending')
+    context = {'appointments': appointments}
+    # if request.method == 'POST':
+    #     form = RoomAllotmentForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         form = RoomAllotmentForm()
+    #         messages.success(request, 'appointment added successfully!')
+    #     else:
+    #         messages.error(request, 'Form submission error.')
+    return render(request, template_path, context)
