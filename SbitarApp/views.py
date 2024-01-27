@@ -16,7 +16,6 @@ def login(request):
 
     return render(request, template_path, context)
 
-
 def homePage(request):
     if request.method == 'POST':
         your_id = request.POST.get('your_ID')
@@ -37,8 +36,7 @@ def homePage(request):
         else:
             # Authentication failed, handle the error (e.g., display an error message)
             error_message = "Invalid credentials. Please try again."
-            return render(request, 'login.html', {'error_message': error_message})
-    
+            return render(request, 'login.html', {'error_message': error_message})   
 
 def allDoctorsPage(request):
     doctors = Doctor.objects.all()
