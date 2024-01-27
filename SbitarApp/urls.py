@@ -13,7 +13,8 @@ urlpatterns = [
     path('homePage/add-Patient',views.addPatient,name='addPatient'),
     path('homePage/Patients',views.allPatientsPage,name='Patients'),
     path('homePage/about-patient/<int:patient_id>',views.patientDetails,name='consult'),
-
+    path('delete-patient/<int:patient_id>/', views.deletePatient, name='deletePatient'),
+    path('update-patient/<int:patient_id>/', views.updatePatient, name='updatePatient'),
 
 
     path('homePage/add-appointment',views.addAppointments,name='addAppointment'),

@@ -1,7 +1,7 @@
 from datetime import date
 from django.utils import timezone
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 import logging
 from .forms import DoctorForm, PatientForm,AppointmentForm, RoomAllotmentForm
 from .models import Appointment, Doctor, Patient, RoomAllotment
@@ -81,6 +81,23 @@ def addPatient(request):
         context = {}
         template_path ='add-patient.html'
         return render(request, template_path, context)
+    
+def deletePatient(request, patient_id):
+    patient = Patient.objects.get(id=patient_id)
+    patient.delete()
+    return allPatientsPage(request)
+
+def updatePatient(request, patient_id):
+    patient = get_object_or_404(Patient, id=patient_id)
+    logging.debug("trying to update")
+    form = PatientForm(request.POST, instance=patient)
+    if form.is_valid():
+        form.save()
+
+    return  patientDetails(request,patient_id)
+
+
+
 
 def patientDetails(request,patient_id):
     patient = Patient.objects.get(id=patient_id)
