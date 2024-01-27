@@ -164,9 +164,9 @@
 										<tr>
 											<th>Doctor ID</th>
 											<th>Doctor Name</th>
-											<th>Experience <small>(in Years)</small></th>
+											<th>Title</th>
 											<th>Phone</th>
-											<th>Specialization</th>
+											<th>Departement</th>
 											<th>Email</th>
 											<th>Detaills</th>
 										</tr>
@@ -176,9 +176,9 @@
 										<tr>
 											<td>{{ doctor.id }}</td>
 											<td>{{ doctor.name }} {{ doctor.last_name }}</td>
-											<td>{{ doctor.experience }}</td>
+											<td>{{ doctor.title }}</td>
 											<td>{{ doctor.phone_number }}</td>
-											<td>{{ doctor.specialty }}</td>
+											<td>{{ doctor.departement }}</td>
 											<td>{{ doctor.email }}</td>
 											<td>
 												<a class="badge badge-success" href="{% url 'aboutDoc' doctor.id %}"> consult</a>
