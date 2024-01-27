@@ -2,14 +2,35 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>LOGIN</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sbitar</title>
+        <!-- Fav  Icon Link -->
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/img2.png' %}">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+        <!-- themify icons CSS -->
+        <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
+        <!-- Animations CSS -->
+        <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+        <link rel="stylesheet" href="{% static 'css/green.css'%}" id="style_theme">
+        <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="{% static 'css/jquery-jvectormap.css'%}">
+    
+    
+        <script src="{% static 'js/modernizr.min.js'%}"></script>
     <!-- Main css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css'%}">
 </head>
+
 <body>
 
     <div class="main">
@@ -17,6 +38,16 @@
         <!-- Sing in  Form -->
         <section class="login">
             <div class="container">
+                <!-- Alerts-->
+                {% if error_message %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Wrong password</strong> You should fill the fields below with correct infos.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                {% endif %}
+                <!-- /Alerts-->
                 <div class="login-content">
                     <div class="img">
                         <figure><img src="{% static 'images/img.png'%}" alt="login image"></figure>
@@ -29,27 +60,36 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="your_ID"></label>
-                                <input type="text" name="your_ID" id="your_ID" placeholder="Your ID"/>
+                                <input type="text" name="your_ID" id="your_ID" placeholder="Your ID" />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                                <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
                             </div>
-                            
+
                             <div class="form-group form-button">
 
-                                <input type="submit" name="login" id="login" class="form-submit" value="Log in"/>
+                                <input type="submit" name="login" id="login" class="form-submit" value="Log in" />
 
                             </div>
                         </form>
-                        
-                        </div>
+
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     </div>
+    <!-- Jquery Library-->
+	<script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+	<!-- Popper Library-->
+	<script src="{% static 'js/popper.min.js'%}"></script>
+	<!-- Bootstrap Library-->
+	<script src="{% static 'js/bootstrap.min.js'%}"></script>
 
+	<!-- Custom Script-->
+	<script src="{% static 'js/custom.js'%}"></script>
 </body>
+
 </html>
