@@ -2,13 +2,15 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sbitar</title>
+	<title>Dossier Medical</title>
 	<!-- Fav  Icon Link -->
-	<link rel="shortcut icon" type="image/png" href="{% static 'images/img2.png' %}">
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/img.png'%}">
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
 	<!-- themify icons CSS -->
@@ -19,9 +21,10 @@
 	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
 	<link rel="stylesheet" href="{% static 'css/green.css'%}" id="style_theme">
 	<link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+	<!-- morris charts -->
+	<link rel="stylesheet" href="{% static 'charts/css/morris.css'%}">
 	<!-- jvectormap -->
 	<link rel="stylesheet" href="{% static 'css/jquery-jvectormap.css'%}">
-
 
 	<script src="{% static 'js/modernizr.min.js'%}"></script>
 </head>
@@ -119,22 +122,22 @@
 				<!-- Page Title -->
 				<div class="container mt-0">
 					<div class="row breadcrumb-bar">
-						<div class="col-md-6">
-							<h3 class="block-title">Patients</h3>
-						</div>
-						<div class="col-md-6">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="index.html">
-										<span class="ti-home"></span>
-									</a>
-								</li>
-								<li class="breadcrumb-item">Patients</li>
-								<li class="breadcrumb-item active">All Patients</li>
-							</ol>
-						</div>
-					</div>
+				<div class="col-md-6">
+					<h3 class="block-title">Patient Details</h3>
 				</div>
+				<div class="col-md-6">
+					<ol class="breadcrumb">						
+						<li class="breadcrumb-item">
+							<a href="index.html">
+								<span class="ti-home"></span>
+							</a>
+                        </li>
+                        <li class="breadcrumb-item">Patients</li>
+						<li class="breadcrumb-item active">Patient Details</li>
+					</ol>
+				</div>
+			</div>
+			</div>
 			<!-- /Page Title -->
 
 			<!-- /Breadcrumb -->
@@ -143,86 +146,102 @@
 
 				<div class="row">
 					<!-- Widget Item -->
-					<div class="col-md-12">
+					<div class="col-md-6">
 						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">Patients List</h3>							
-							<div class="table-responsive mb-3">
-								<table id="tableId" class="table table-bordered table-striped">
-									<thead>
+							<h3 class="widget-title">Patient Details</h3>
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>											
+											<td><strong>Nom</strong></td>
+											<td>{{patient.last_name}}</td>
+										</tr>
+										<tr>											
+											<td><strong>Prenom</strong></td>
+											<td>{{ patient.name }}</td>
+										</tr>
 										<tr>
-											<th class="no-sort">
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="select-all">
-													<label class="custom-control-label" for="select-all"></label>
-												</div>
-											</th>
-											<th>Patient ID</th>
-											<th>Nom</th>
-											<th>Prenom</th>
-											<th>Date De Naissance</th>
-											<th>Phone</th>
-											<th>last Visit</th>
-											<th>medical record</th>
+											<td><strong>Date De Naissance</strong> </td>
+											<td>{{ patient.dob }}</td>
+										</tr>
+										<tr>
+											<td><strong>Age</strong> </td>
+											<td>33</td>
+										</tr>
+										<tr>
+											<td><strong>Gender</strong></td>
+											<td>{{ patient.gender }}</td>
+										</tr>
+										<tr>
+											<td><strong>Address</strong></td>
+											<td>{{ patient.address }}</td>
+										</tr>
+										<tr>
+											<td><strong>Phone </strong></td>
+											<td>{{ patient.phone_number }}</td>
+										</tr>
+										<tr>
+											<td><strong>Email</strong></td>
+											<td>{{ patient.email }}</td>
+                                        </tr>									
+									</tbody>
+								</table>
+							</div>
+							
+                            <button type="button" class="btn btn-success mb-3"><span class="ti-pencil-alt"></span> Edit Patient</button>
+                            <button type="button" class="btn btn-danger mb-3"><span class="ti-trash"></span> Delete Patient</button>
+						</div>
+					</div>
+                    <!-- /Widget Item -->
+                    <!-- Widget Item -->
+					<div class="col-md-6">
+						<div class="widget-area-2 proclinic-box-shadow">
+							<h3 class="widget-title">Historique</h3>
+							<div class="table-responsive">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>										
+											<th>Doctor Name</th>
+											<th>Service</th>
+											<th>Visit Date</th>
+											<th>Status</th>
+											<th>Diagnostique</th>
+											<th>Traitement</th>
 										</tr>
 									</thead>
 									<tbody>
-										{% for patient in patients %}
-										<tr>
-											<td>
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="1">
-													<label class="custom-control-label" for="1"></label>
-												</div>
-											</td>
-											<td>{{ patient.id }}</td>
-											<td>{{ patient.name }}</td>
-											<td>{{ patient.last_name }}</td>
-											<td>{{patient.dob}}</td>
-											<td>{{ patient.phone_number }}</td>
+										<tr>											
+											<td>kesh whd</td>
+											<td>Gastro</td>
 											<td>12-03-2018</td>
-											<td>
-												<!-- <span class="badge badge-success">Completed</span> -->
-												<a class="badge badge-success" href="{% url 'consult' patient.id %}"> consult</a>
-											</td>
+											<td>Resheduled</td>
+											<td>appendicite</td>
+											<td>nahoha</td>
+
 										</tr>
-										{% endfor %}
+										<tr>
+											<td>kesh whda</td>
+											<td>Ortho</td>
+											<td>13-10-2018</td>
+											<td>Post-Operation</td>
+											<td>3adma MKsra</td>
+											<td>le platre w tchrob paracetamol</td>
+										</tr>
+																	
 									</tbody>
 								</table>
-								<!--Export links-->
-								<nav aria-label="Page navigation example">
-									<ul class="pagination justify-content-center export-pagination">
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-download"></span> csv</a>
-										</li>
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-printer"></span>  print</a>
-										</li>
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-file"></span> PDF</a>
-										</li>
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-align-justify"></span> Excel</a>
-										</li>
-									</ul>
-								</nav>
-								<!-- /Export links-->
-								<button type="button" class="btn btn-danger mt-3 mb-0"><span class="ti-trash"></span> DELETE</button>
-								<button type="button" class="btn btn-primary mt-3 mb-0"><span class="ti-pencil-alt"></span> EDIT</button>
+								
 							</div>
 						</div>
 					</div>
-					<!-- /Widget Item -->
-				</div>
-			</div>
+                    <!-- /Widget Item -->
+                     <!-- Widget Item -->
+					
 			<!-- /Main Content -->
 			
 		</div>
 		<!-- /Page Content -->
 	</div>
-	<!-- Back to Top -->
-	<a id="back-to-top" href="#" class="back-to-top">
-		<span class="ti-angle-up"></span>
-	</a>
 	<!-- Back to Top -->
 	<a id="back-to-top" href="#" class="back-to-top">
 		<span class="ti-angle-up"></span>
@@ -233,11 +252,11 @@
 	<!-- Popper Library-->
 	<script src="{% static 'js/popper.min.js'%}"></script>
 	<!-- Bootstrap Library-->
-	<script src="{% static 'js/bootstrap.min.js'%}"></script>
-
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    
+    
 	<!-- Custom Script-->
 	<script src="{% static 'js/custom.js'%}"></script>
-	<script src="{% static 'js/custom-datatables.js'%}"></script>
 
 </body>
 

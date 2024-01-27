@@ -11,6 +11,9 @@ urlpatterns = [
 
     path('homePage/add-Patient',views.addPatient,name='addPatient'),
     path('homePage/Patients',views.allPatientsPage,name='Patients'),
+    path('homePage/about-patient/<int:patient_id>',views.patientDetails,name='consult'),
+
+
 
     path('homePage/add-appointment',views.addAppointments,name='addAppointment'),
     path('homePage/appointments',views.allAppointmentsPage,name='appointments'),

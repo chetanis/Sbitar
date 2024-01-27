@@ -75,6 +75,12 @@ def addPatient(request):
         template_path ='add-patient.html'
         return render(request, template_path, context)
 
+def patientDetails(request,patient_id):
+    patient = Patient.objects.get(id=patient_id)
+    context = {'patient': patient}
+    template_path ='about-patient.html'
+    return render(request, template_path, context)
+
 def allAppointmentsPage(request):
     appointments = Appointment.objects.all()
     context = {'appointments': appointments}
