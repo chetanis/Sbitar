@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import render , get_object_or_404
 import logging
-from .forms import DoctorForm, PatientForm,AppointmentForm, RoomAllotmentForm
+from .forms import DoctorForm, PatientForm,AppointmentForm, ResultForm, RoomAllotmentForm
 from .models import Appointment, Doctor, Patient, RoomAllotment
 # Create your views here.
 
@@ -175,12 +175,12 @@ def addResult(request):
     template_path ='result.html'
     appointments = Appointment.objects.filter(status='pending')
     context = {'appointments': appointments}
-    # if request.method == 'POST':
-    #     form = RoomAllotmentForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         form = RoomAllotmentForm()
-    #         messages.success(request, 'appointment added successfully!')
-    #     else:
-    #         messages.error(request, 'Form submission error.')
+    if request.method == 'POST':
+        form = ResultForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = ResultForm()
+            messages.success(request, 'appointment added successfully!')
+        else:
+            messages.error(request, 'Form submission error.')
     return render(request, template_path, context)

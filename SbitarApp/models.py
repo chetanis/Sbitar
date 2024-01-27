@@ -41,4 +41,9 @@ class RoomAllotment(models.Model):
     discharge_date = models.DateField()
     appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
 
+class Result(models.Model):
+    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
+    diagnostique = models.TextField()
+    traitement = models.TextField()
+
 
