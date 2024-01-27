@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 
@@ -22,8 +21,6 @@
 	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
 	<link rel="stylesheet" href="{% static 'css/green.css'%}" id="style_theme">
 	<link rel="stylesheet" href="{% static 'css/responsive.css'%}">
-	<!-- morris charts -->
-	<link rel="stylesheet" href="{% static 'charts/css/morris.css'%}">
 	<!-- jvectormap -->
 	<link rel="stylesheet" href="{% static 'css/jquery-jvectormap.css'%}">
 
@@ -31,18 +28,10 @@
 </head>
 
 <body>
-	<!-- Pre Loader -->
-	<div class="loading">
-		<div class="spinner">
-			<div class="double-bounce1"></div>
-			<div class="double-bounce2"></div>
-		</div>
-	</div>
-	<!--/Pre Loader -->
 	<div class="wrapper">
 		<!-- Page Content -->
 		<div id="content">
-			<!-- Top Navigation -->
+				<!-- Top Navigation -->
 			<div class="container top-brand">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
@@ -82,9 +71,9 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active">
-								<a class="nav-link " href="{% url 'homePage' %}" role="button"
-									aria-haspopup="true" aria-expanded="false"><span class="ti-home"></span>
+							<li class="nav-item ">
+								<a class="nav-link " href="{% url 'homePage' %}" role="button" aria-haspopup="true"
+									aria-expanded="false"><span class="ti-home"></span>
 									Dashboard</a>
 							</li>
 							<li class="nav-item dropdown">
@@ -104,7 +93,7 @@
 									<a class="dropdown-item" href="{% url 'doctors' %}">All Doctors</a>
 								</div>
 							</li>
-							<li class="nav-item dropdown">
+							<li class="nav-item dropdown ">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 									aria-haspopup="true" aria-expanded="false"><span class="ti-pencil-alt"></span>
 									Appointments</a>
@@ -113,7 +102,7 @@
 									<a class="dropdown-item" href="{% url 'appointments'%}">All Appointments</a>
 								</div>
 							</li>
-							<li class="nav-item dropdown">
+							<li class="nav-item dropdown active">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 									aria-haspopup="true" aria-expanded="false"><span class="ti-key"></span> Room
 									Allotments</a>
@@ -127,156 +116,117 @@
 				</nav>
 			</div>
 			<!-- /Menu -->
-			<!-- Breadcrumb -->
-			<!-- Page Title -->
-			<div class="container mt-0">
-				<div class="row breadcrumb-bar">
-					<div class="col-md-6">
-						<h3 class="block-title">Quick Statistics</h3>
-					</div>
-					<div class="col-md-6">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="index.html">
-									<span class="ti-home"></span>
-								</a>
-							</li>
-							<li class="breadcrumb-item active">Dashboard</li>
-						</ol>
+				<!-- Breadcrumb -->
+				<!-- Page Title -->
+				<div class="container mt-0">
+					<div class="row breadcrumb-bar">
+						<div class="col-md-6">
+							<h3 class="block-title">Add Room Allotment</h3>
+						</div>
+						<div class="col-md-6">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="index.html">
+										<span class="ti-home"></span>
+									</a>
+								</li>
+								<li class="breadcrumb-item">Room Allotments</li>
+								<li class="breadcrumb-item active">Add Room Allotment</li>
+							</ol>
+						</div>
 					</div>
 				</div>
-			</div>
 			<!-- /Page Title -->
+
 			<!-- /Breadcrumb -->
 			<!-- Main Content -->
-			<div class="container home">
-				<div class="row">
-					<!-- Widget Item -->
-					<div class="col-md-4">
-						<div class="widget-area proclinic-box-shadow color-red">
-							<div class="widget-left">
-								<span class="ti-user"></span>
-							</div>
-							<div class="widget-right">
-								<h4 class="wiget-title">Patients</h4>
-								<span class="numeric color-red">{{nb_patients}}</span>
-							</div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
-					<!-- Widget Item -->
-					<div class="col-md-4">
-						<div class="widget-area proclinic-box-shadow color-green">
-							<div class="widget-left">
-								<span style="margin-top: 10px;" class="ti-bar-chart"></span>
-							</div>
-							<div class="widget-right">
-								<h4 class="wiget-title">Appointments</h4>
-								<span class="numeric color-green">{{nb_appointmets}}</span>
-							</div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
-					<!-- Widget Item -->
-					<div class="col-md-4">
-						<div class="widget-area proclinic-box-shadow color-yellow">
-							<div class="widget-left">
-								<span class="ti-money"></span>
-							</div>
-							<div class="widget-right">
-								<h4 class="wiget-title">Doctors</h4>
-								<span class="numeric color-yellow">{{nb_doctors}}</span>
-							</div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
-				</div>
+			<div class="container">
 
 				<div class="row">
 					<!-- Widget Item -->
 					<div class="col-md-12">
 						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">today's Appointments</h3>
-							<div class="table-responsive">
-								<table class="table table-bordered table-striped">
-									<thead>
-										<tr>
-											<th>Patient Name</th>
-											<th>Doctor</th>
-											<th>Service</th>
-											<th>Date</th>
-											<th>Time</th>
-											<th>Status</th>
-										</tr>
-									</thead>
-									<tbody>
-										{% for appointment in appointments %}
-										<tr>
-											<td>{{appointment.patient.last_name}} {{appointment.patient.name}} </td>
-											<td>{{appointment.doctor.last_name}} {{appointment.doctor.name}}</td>
-											<td>{{appointment.service}}</td>
-											<td>{{appointment.appointment_date}}</td>
-											<td>{{appointment.time_slot}}</td>
-											<td>
-												<span class="badge badge-success">Completed</span>
-											</td>
-										</tr>
-										{% endfor %}
-									</tbody>
-								</table>
+							<h3 class="widget-title">Add Room Allotment</h3>
+							<!-- Alerts-->
+							{% if messages %}
+							{% for message in messages %}
+							{% if 'success' in message.tags %}
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								<strong>Successfully Done!</strong> Please Check in appointments list
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
 							</div>
+							{% endif %}
+							{% if 'error' in message.tags %}
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							{% endif %}
+							{% endfor %}
+							{% endif %}
+							<!-- /Alerts-->
+							<form>
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="room-number">Room Number</label>
+										<input type="text" class="form-control" placeholder="Room Number" id="room-number">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="room-type">Room Type</label>
+										<select class="form-control" id="room-type">
+											<option>ICU</option>
+											<option>General</option>
+											<option>AC Room</option>
+										</select>
+									</div>
+									<div class="form-group col-md-6">
+										<label for="patient-name">Patient Name</label>
+										<input type="text" placeholder="Patient Name" class="form-control" id="patient-name">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="allot-date">Allotment Date</label>
+										<input type="date" placeholder="Allotment Date" class="form-control" id="allot-date">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="discharge-date">Discharge Date</label>
+										<input type="date" placeholder="Discharge Date" class="form-control" id="discharge-date">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="doctor-name">Doctor Name</label>
+										<input type="text" placeholder="Doctor Name" class="form-control" id="doctor-name">
+									</div>
+																		
+									<div class="form-check col-md-12 mb-2">
+										<div class="text-left">
+											<div class="custom-control custom-checkbox">
+												<input class="custom-control-input" type="checkbox" id="ex-check-2">
+												<label class="custom-control-label" for="ex-check-2">Please Confirm</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group col-md-6 mb-3">
+										<button type="submit" class="btn btn-primary btn-lg">Allot Room</button>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 					<!-- /Widget Item -->
 				</div>
-
-				<div class="row">
-					<!-- Widget Item -->
-					<div class="col-sm-6">
-						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">Appointments Status</h3>
-							<div id="donutMorris" class="chart-home"></div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
-					<!-- Widget Item -->
-					<div class="col-md-6">
-						<div class="widget-area-2 progress-status proclinic-box-shadow">
-							<h3 class="widget-title">Doctors Availability</h3>
-							<div class="table-responsive">
-								<table class="table table-bordered">
-									<thead>
-										<tr>
-											<th>Doctor</th>
-											<th>Speciality</th>
-											<th>Availability</th>
-										</tr>
-									</thead>
-									<tbody>
-										{% for doctor in doctors %}
-										<tr>
-											<td>{{ doctor.name }}</td>
-											<td>{{ doctor.specialty }}</td>
-											<td>
-												<span class="badge badge-success">Available</span>
-											</td>
-										</tr>
-										{% endfor %}
-									</tbody>
-								</table>
-							</div>
-
-						</div>
-					</div>
-					<!-- /Widget Item -->
-
-				</div>
-
 			</div>
 			<!-- /Main Content -->
+			
 		</div>
 		<!-- /Page Content -->
 	</div>
+	<!-- Back to Top -->
+	<a id="back-to-top" href="#" class="back-to-top">
+		<span class="ti-angle-up"></span>
+	</a>
 	<!-- Back to Top -->
 	<a id="back-to-top" href="#" class="back-to-top">
 		<span class="ti-angle-up"></span>
@@ -288,14 +238,12 @@
 	<script src="{% static 'js/popper.min.js'%}"></script>
 	<!-- Bootstrap Library-->
 	<script src="{% static 'js/bootstrap.min.js'%}"></script>
-	<!-- morris charts -->
-	<script src="{% static 'charts/js/raphael-min.js'%}"></script>
-	<script src="{% static 'charts/js/morris.min.js'%}"></script>
-	<script src="{% static 'js/custom-morris.js'%}"></script>
 
 	<!-- Custom Script-->
 	<script src="{% static 'js/custom.js'%}"></script>
+
 </body>
+
 
 
 </html>

@@ -15,4 +15,7 @@ urlpatterns = [
     path('homePage/add-appointment',views.addAppointments,name='addAppointment'),
     path('homePage/appointments',views.allAppointmentsPage,name='appointments'),
 
+    path('homePage/add-room',views.addRoom,name='addRoom'),
+    path('homePage/rooms',views.allRoomsPage,name='rooms'),
+
 ]

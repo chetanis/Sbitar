@@ -1,4 +1,4 @@
-import os
+from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import render
 import logging
@@ -14,14 +14,19 @@ def login(request):
 
 def homePage(request):
     doctors = Doctor.objects.all()
-    context = {'doctors': doctors}
+
+    nb_doctors = Doctor.objects.count()
+    nb_patients = Patient.objects.count()
+    nb_appointmets = Appointment.objects.count()
+    
+    today_date = timezone.now().date()
+    todayAppointments = Appointment.objects.filter(appointment_date = today_date)
+    context = {'doctors': doctors,'appointments': todayAppointments,'nb_doctors':nb_doctors,'nb_patients':nb_patients,'nb_appointmets':nb_appointmets}
     template_path ='homePage.html'
     return render(request, template_path, context)
 
 def allDoctorsPage(request):
     doctors = Doctor.objects.all()
-    for doctor in doctors:
-        logging.debug(doctor.email)
     context = {'doctors': doctors}
     template_path ='doctors.html'
     return render(request, template_path, context)
@@ -92,3 +97,28 @@ def addAppointments(request):
         return render(request, template_path, {'patients': patients,'form': form,'doctors': doctors})
     
     return render(request, template_path, context)
+
+
+
+def allRoomsPage(request):
+    # appointments = Appointment.objects.all()
+    # context = {'appointments': appointments}
+    template_path ='rooms.html'
+    return render(request, template_path, {})
+
+def addRoom(request):
+    # doctors = Doctor.objects.all()
+    # patients = Patient.objects.all()
+    # context = {'patients': patients,'doctors': doctors}
+    template_path ='add-room.html'
+    # if request.method == 'POST':
+    #     form = AppointmentForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         form = AppointmentForm()
+    #         messages.success(request, 'appointment added successfully!')
+    #     else:
+    #         messages.error(request, 'Form submission error.')
+    #     return render(request, template_path, {'patients': patients,'form': form,'doctors': doctors})
+    
+    return render(request, template_path, {})
