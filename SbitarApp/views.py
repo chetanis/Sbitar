@@ -47,16 +47,19 @@ def addDoctor(request):
         context = {}
         template_path ='add-doctor.html'
         return render(request, template_path, context)
+    
+def doctorDetails(request,doctor_id):
+    doctor = Doctor.objects.get(id=doctor_id)
+    context = {'doctor': doctor}
+    template_path ='about-doctor.html'
+    return render(request, template_path, context)
 
 
 
 def allPatientsPage(request):
     patients = Patient.objects.all()
-    for patient in patients:
-        logging.debug(patient.name)
     context = {'patients': patients}
     template_path ='patients.html'
-    logging.debug(context)
     return render(request, template_path, context)
 
 def addPatient(request):

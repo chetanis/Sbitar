@@ -162,36 +162,27 @@
 								<table id="tableId" class="table table-bordered table-striped">
 									<thead>
 										<tr>
-											<th class="no-sort">
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="select-all">
-													<label class="custom-control-label" for="select-all"></label>
-												</div>
-											</th>
 											<th>Doctor ID</th>
 											<th>Doctor Name</th>
 											<th>Experience <small>(in Years)</small></th>
 											<th>Phone</th>
 											<th>Specialization</th>
 											<th>Email</th>
+											<th>Detaills</th>
 										</tr>
 									</thead>
 									<tbody>
 										{% for doctor in doctors %}
 										<tr>
-											<td>
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox"
-														id="{{ doctor.id }}">
-													<label class="custom-control-label" for="{{ doctor.id }}"></label>
-												</div>
-											</td>
 											<td>{{ doctor.id }}</td>
 											<td>{{ doctor.name }} {{ doctor.last_name }}</td>
 											<td>{{ doctor.experience }}</td>
 											<td>{{ doctor.phone_number }}</td>
 											<td>{{ doctor.specialty }}</td>
 											<td>{{ doctor.email }}</td>
+											<td>
+												<a class="badge badge-success" href="{% url 'aboutDoc' doctor.id %}"> consult</a>
+											</td>
 										</tr>
 										{% endfor %}
 									</tbody>
