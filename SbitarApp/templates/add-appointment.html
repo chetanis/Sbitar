@@ -29,7 +29,7 @@
 	<div class="wrapper">
 		<!-- Page Content -->
 		<div id="content">
-				<!-- Top Navigation -->
+			<!-- Top Navigation -->
 			<div class="container top-brand">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
@@ -70,8 +70,8 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item ">
-								<a class="nav-link " href="{% url 'homePage' %}" role="button"
-									aria-haspopup="true" aria-expanded="false"><span class="ti-home"></span>
+								<a class="nav-link " href="{% url 'homePage' %}" role="button" aria-haspopup="true"
+									aria-expanded="false"><span class="ti-home"></span>
 									Dashboard</a>
 							</li>
 							<li class="nav-item dropdown">
@@ -115,26 +115,26 @@
 				</nav>
 			</div>
 			<!-- /Menu -->
-				<!-- Breadcrumb -->
-				<!-- Page Title -->
-				<div class="container mt-0">
-					<div class="row breadcrumb-bar">
-						<div class="col-md-6">
-							<h3 class="block-title">Add Appointment</h3>
-						</div>
-						<div class="col-md-6">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="index.html">
-										<span class="ti-home"></span>
-									</a>
-								</li>
-								<li class="breadcrumb-item">Appointments</li>
-								<li class="breadcrumb-item active">Add Appointment</li>
-							</ol>
-						</div>
+			<!-- Breadcrumb -->
+			<!-- Page Title -->
+			<div class="container mt-0">
+				<div class="row breadcrumb-bar">
+					<div class="col-md-6">
+						<h3 class="block-title">Add Appointment</h3>
+					</div>
+					<div class="col-md-6">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="index.html">
+									<span class="ti-home"></span>
+								</a>
+							</li>
+							<li class="breadcrumb-item">Appointments</li>
+							<li class="breadcrumb-item active">Add Appointment</li>
+						</ol>
 					</div>
 				</div>
+			</div>
 			<!-- /Page Title -->
 
 			<!-- /Breadcrumb -->
@@ -173,7 +173,14 @@
 								<div class="form-row">
 									<div class="form-group col-md-6">
 										<label for="patient-name">Patient ID</label>
-										<input type="text" class="form-control" placeholder="Patient ID" id="patient-id" name="patient">
+										<input list="patients" class="form-control" placeholder="Patient ID"
+											id="patient-id" name="patient">
+										<datalist id="patients">
+											{% for patient in patients %}
+											<option value="{{ patient.id }}">{{ patient.name }} {{ patient.last_name }}
+											</option>
+											{% endfor %}
+										</datalist>
 									</div>
 									<div class="form-group col-md-6">
 										<label for="Service">Service</label>
@@ -188,12 +195,9 @@
 										</select>
 									</div>
 									<div class="form-group col-md-6">
-										<label for="doctor-name">Doctor Name</label>
-										<input type="text" placeholder="Doctor Name" class="form-control" id="doctor-name" name="doctor">
-									</div>
-									<div class="form-group col-md-6">
 										<label for="appointment-date">Appointment Date</label>
-										<input type="date" placeholder="Appointment Date" class="form-control" id="appointment-date" name="appointment_date">
+										<input type="date" placeholder="Appointment Date" class="form-control"
+											id="appointment-date" name="appointment_date">
 									</div>
 									<div class="form-group col-md-6">
 										<label for="time-slot">Time Slot</label>
@@ -210,6 +214,17 @@
 										</select>
 									</div>
 									<div class="form-group col-md-6">
+										<label for="doctor-name">Doctor ID</label>
+										<input list="doctors" placeholder="Doctor ID" class="form-control"
+											id="doctor-name" name="doctor">
+											<datalist id="doctors">
+												{% for doctor in doctors %}
+												<option value="{{ doctor.id }}">{{ doctor.name }} {{ doctor.last_name }} {{doctor.specialty}}
+												</option>
+												{% endfor %}
+											</datalist>
+									</div>
+									<div class="form-group col-md-6">
 										<label for="time-slot">hospitalization</label>
 										<select class="form-control" id="time-slot" name="hospitalization">
 											<option>yes</option>
@@ -218,7 +233,8 @@
 									</div>
 									<div class="form-group col-md-12">
 										<label for="problem">Problem</label>
-										<textarea placeholder="Problem" class="form-control" id="problem" rows="3" name="problem"></textarea>
+										<textarea placeholder="Problem" class="form-control" id="problem" rows="3"
+											name="problem"></textarea>
 									</div>
 									<div class="form-group col-md-6 mb-3">
 										<button type="submit" class="btn btn-primary btn-lg">Submit</button>
@@ -231,7 +247,7 @@
 				</div>
 			</div>
 			<!-- /Main Content -->
-			
+
 		</div>
 		<!-- /Page Content -->
 	</div>

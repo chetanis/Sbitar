@@ -77,6 +77,10 @@ def allAppointmentsPage(request):
     return render(request, template_path, context)
 
 def addAppointments(request):
+    doctors = Doctor.objects.all()
+    patients = Patient.objects.all()
+    context = {'patients': patients,'doctors': doctors}
+    template_path ='add-appointment.html'
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
@@ -85,9 +89,6 @@ def addAppointments(request):
             messages.success(request, 'appointment added successfully!')
         else:
             messages.error(request, 'Form submission error.')
-        template_path ='add-appointment.html'
-        return render(request, template_path, {'form': form})
-    else:
-        context = {}
-        template_path ='add-appointment.html'
-        return render(request, template_path, context)
+        return render(request, template_path, {'patients': patients,'form': form,'doctors': doctors})
+    
+    return render(request, template_path, context)
