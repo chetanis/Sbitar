@@ -56,7 +56,7 @@
 
                     <div class="login-form">
                         <h2 class="form-title">LOGIN</h2>
-                        <form method="POST" class="register-form" id="login-form" action="{% url 'homePage' %}">
+                        <form method="POST" class="register-form" id="login-form" action="{% url 'loginCheck' %}">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="your_ID"></label>

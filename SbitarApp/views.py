@@ -6,6 +6,7 @@ import logging
 from .forms import DoctorForm, PatientForm,AppointmentForm, RoomAllotmentForm
 from .models import Appointment, Doctor, Patient, RoomAllotment
 # Create your views here.
+
 def calculate_age(birth_date, current_date):
     age = current_date.year - birth_date.year - ((current_date.month, current_date.day) < (birth_date.month, birth_date.day))
     return age
@@ -16,27 +17,32 @@ def login(request):
 
     return render(request, template_path, context)
 
-def homePage(request):
+def chekLogin(request):
     if request.method == 'POST':
         your_id = request.POST.get('your_ID')
         your_pass = request.POST.get('your_pass')
 
         # Simple manual check
         if your_id == 'admin' and your_pass == 'admin':
-            doctors = Doctor.objects.all()
-
-            nb_doctors = Doctor.objects.count()
-            nb_patients = Patient.objects.count()
-            nb_appointmets = Appointment.objects.count() 
-            today_date = timezone.now().date()
-            todayAppointments = Appointment.objects.filter(appointment_date = today_date)
-            context = {'doctors': doctors,'appointments': todayAppointments,'nb_doctors':nb_doctors,'nb_patients':nb_patients,'nb_appointmets':nb_appointmets}
-            template_path ='homePage.html'
-            return render(request, template_path, context)
+            
+            return homePage(request)
         else:
             # Authentication failed, handle the error (e.g., display an error message)
             error_message = "Invalid credentials. Please try again."
-            return render(request, 'login.html', {'error_message': error_message})   
+            return render(request, 'login.html', {'error_message': error_message})
+
+def homePage(request):
+    doctors = Doctor.objects.all()
+
+    nb_doctors = Doctor.objects.count()
+    nb_patients = Patient.objects.count()
+    nb_appointmets = Appointment.objects.count() 
+    today_date = timezone.now().date()
+    todayAppointments = Appointment.objects.filter(appointment_date = today_date)
+    context = {'doctors': doctors,'appointments': todayAppointments,'nb_doctors':nb_doctors,'nb_patients':nb_patients,'nb_appointmets':nb_appointmets}
+    template_path ='homePage.html'
+    return render(request, template_path, context)
+  
 
 def allDoctorsPage(request):
     doctors = Doctor.objects.all()
