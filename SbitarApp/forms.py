@@ -1,6 +1,6 @@
 # forms.py
 from django import forms
-from .models import Doctor, Patient,Appointment
+from .models import Doctor, Patient,Appointment, RoomAllotment
 
 class DoctorForm(forms.ModelForm):
     class Meta:
@@ -16,3 +16,8 @@ class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
         fields = ['patient', 'service', 'doctor', 'appointment_date', 'time_slot', 'hospitalization', 'problem']
+
+class RoomAllotmentForm(forms.ModelForm):
+    class Meta:
+        model = RoomAllotment
+        fields = ['room_number', 'room_type', 'allotment_date', 'discharge_date', 'appointment']

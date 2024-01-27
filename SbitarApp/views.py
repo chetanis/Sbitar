@@ -2,8 +2,8 @@ from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import render
 import logging
-from .forms import DoctorForm, PatientForm,AppointmentForm
-from .models import Appointment, Doctor, Patient
+from .forms import DoctorForm, PatientForm,AppointmentForm, RoomAllotmentForm
+from .models import Appointment, Doctor, Patient, RoomAllotment
 # Create your views here.
 
 def login(request):
@@ -110,24 +110,22 @@ def addAppointments(request):
 
 
 def allRoomsPage(request):
-    # appointments = Appointment.objects.all()
-    # context = {'appointments': appointments}
+    rooms = RoomAllotment.objects.all()
+    context = {'rooms': rooms}
     template_path ='rooms.html'
-    return render(request, template_path, {})
+    return render(request, template_path, context)
 
-def addRoom(request):
-    # doctors = Doctor.objects.all()
-    # patients = Patient.objects.all()
-    # context = {'patients': patients,'doctors': doctors}
+def allotRoom(request):
     template_path ='add-room.html'
-    # if request.method == 'POST':
-    #     form = AppointmentForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         form = AppointmentForm()
-    #         messages.success(request, 'appointment added successfully!')
-    #     else:
-    #         messages.error(request, 'Form submission error.')
-    #     return render(request, template_path, {'patients': patients,'form': form,'doctors': doctors})
-    
-    return render(request, template_path, {})
+    appointments = Appointment.objects.filter(status='pending')
+    context = {'appointments': appointments}
+    if request.method == 'POST':
+        form = RoomAllotmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = RoomAllotmentForm()
+            messages.success(request, 'appointment added successfully!')
+        else:
+            logging.debug(form.errors)
+            messages.error(request, 'Form submission error.')
+    return render(request, template_path, context)

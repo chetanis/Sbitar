@@ -33,4 +33,12 @@ class Appointment(models.Model):
     problem = models.TextField()
     status = models.CharField(max_length=15,default='pending')
 
+class RoomAllotment(models.Model):
+    id = models.AutoField(primary_key=True)
+    room_number = models.CharField(max_length=10)
+    room_type = models.CharField(max_length=50)
+    allotment_date = models.DateField()
+    discharge_date = models.DateField()
+    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
+
 
