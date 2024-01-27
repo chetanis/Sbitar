@@ -218,7 +218,11 @@
 											<td>{{appointment.appointment_date}}</td>
 											<td>{{appointment.time_slot}}</td>
 											<td>
-												<span class="badge badge-success">Completed</span>
+												{% if appointment.status == 'pending' %}
+												<span class="badge badge-warning">{{appointment.status}}</span>
+												{% else %}
+												<span class="badge badge-success">{{appointment.status}}</span>
+												{% endif %}
 											</td>
 										</tr>
 										{% endfor %}

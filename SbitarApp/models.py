@@ -31,5 +31,6 @@ class Appointment(models.Model):
     time_slot = models.CharField(max_length=10)
     hospitalization = models.CharField(max_length=3)
     problem = models.TextField()
+    status = models.CharField(max_length=15,default='pending')
 
 
