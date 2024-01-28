@@ -21,8 +21,6 @@
 	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
 	<link rel="stylesheet" href="{% static 'css/green.css'%}" id="style_theme">
 	<link rel="stylesheet" href="{% static 'css/responsive.css'%}">
-	<!-- morris charts -->
-	<link rel="stylesheet" href="{% static 'charts/css/morris.css'%}">
 	<!-- jvectormap -->
 	<link rel="stylesheet" href="{% static 'css/jquery-jvectormap.css'%}">
 
@@ -37,7 +35,7 @@
 			<div class="container top-brand">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
-						<div class="sidebar-header"> <a href="index.html"><img src="{% static 'images/img2.png'%}"
+						<div class="sidebar-header"> <a href="{% url 'homePage' %}"><img src="{% static 'images/img2.png'%}"
 									class="logo" alt="logo"></a>
 						</div>
 					</div>
@@ -49,7 +47,7 @@
 							</a>
 							<div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
 								<h5>Admin</h5>
-								<a class="dropdown-item" href="#"> Logout</a>
+								<a class="dropdown-item" href="{% url 'login' %}"> Logout</a>
 							</div>
 						</li>
 					</ul>
@@ -127,11 +125,6 @@
 					</div>
 					<div class="col-md-6">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="index.html">
-									<span class="ti-home"></span>
-								</a>
-							</li>
 							<li class="breadcrumb-item">Patients</li>
 							<li class="breadcrumb-item active">Patient Details</li>
 						</ol>

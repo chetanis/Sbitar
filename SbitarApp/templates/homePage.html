@@ -46,7 +46,7 @@
 			<div class="container top-brand">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
-						<div class="sidebar-header"> <a href="index.html"><img src="{% static 'images/img2.png'%}"
+						<div class="sidebar-header"> <a href="#"><img src="{% static 'images/img2.png'%}"
 									class="logo" alt="logo"></a>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 							</a>
 							<div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
 								<h5>Admin</h5>
-								<a class="dropdown-item" href="#"> Logout</a>
+								<a class="dropdown-item" href="{% url 'login' %}"> Logout</a>
 							</div>
 						</li>
 					</ul>
@@ -136,11 +136,6 @@
 					</div>
 					<div class="col-md-6">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="index.html">
-									<span class="ti-home"></span>
-								</a>
-							</li>
 							<li class="breadcrumb-item active">Dashboard</li>
 						</ol>
 					</div>
@@ -235,14 +230,6 @@
 				</div>
 
 				<div class="row">
-					<!-- Widget Item -->
-					<div class="col-sm-6">
-						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">Appointments Status</h3>
-							<div id="donutMorris" class="chart-home"></div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
 					<!-- Widget Item -->
 					<div class="col-md-6">
 						<div class="widget-area-2 progress-status proclinic-box-shadow">

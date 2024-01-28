@@ -34,7 +34,7 @@
 			<div class="container top-brand">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header">
-						<div class="sidebar-header"> <a href="index.html"><img src="{% static 'images/img2.png'%}"
+						<div class="sidebar-header"> <a href="{% url 'homePage' %}"><img src="{% static 'images/img2.png'%}"
 									class="logo" alt="logo"></a>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 							</a>
 							<div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
 								<h5>Admin</h5>
-								<a class="dropdown-item" href="#"> Logout</a>
+								<a class="dropdown-item" href="{% url 'login' %}"> Logout</a>
 							</div>
 						</li>
 					</ul>
@@ -124,11 +124,6 @@
 						</div>
 						<div class="col-md-6">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="index.html">
-										<span class="ti-home"></span>
-									</a>
-								</li>
 								<li class="breadcrumb-item">Patients</li>
 								<li class="breadcrumb-item active">All Patients</li>
 							</ol>
@@ -150,12 +145,6 @@
 								<table id="tableId" class="table table-bordered table-striped">
 									<thead>
 										<tr>
-											<th class="no-sort">
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="select-all">
-													<label class="custom-control-label" for="select-all"></label>
-												</div>
-											</th>
 											<th>Patient ID</th>
 											<th>Nom</th>
 											<th>Prenom</th>
@@ -168,12 +157,6 @@
 									<tbody>
 										{% for patient in patients %}
 										<tr>
-											<td>
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="1">
-													<label class="custom-control-label" for="1"></label>
-												</div>
-											</td>
 											<td>{{ patient.id }}</td>
 											<td>{{ patient.name }}</td>
 											<td>{{ patient.last_name }}</td>
@@ -188,26 +171,6 @@
 										{% endfor %}
 									</tbody>
 								</table>
-								<!--Export links-->
-								<nav aria-label="Page navigation example">
-									<ul class="pagination justify-content-center export-pagination">
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-download"></span> csv</a>
-										</li>
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-printer"></span>  print</a>
-										</li>
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-file"></span> PDF</a>
-										</li>
-										<li class="page-item">
-											<a class="page-link" href="#"><span class="ti-align-justify"></span> Excel</a>
-										</li>
-									</ul>
-								</nav>
-								<!-- /Export links-->
-								<button type="button" class="btn btn-danger mt-3 mb-0"><span class="ti-trash"></span> DELETE</button>
-								<button type="button" class="btn btn-primary mt-3 mb-0"><span class="ti-pencil-alt"></span> EDIT</button>
 							</div>
 						</div>
 					</div>
