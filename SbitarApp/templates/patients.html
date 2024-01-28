@@ -150,7 +150,7 @@
 											<th>Prenom</th>
 											<th>Date De Naissance</th>
 											<th>Phone</th>
-											<th>last Visit</th>
+											<th>Gender</th>
 											<th>medical record</th>
 										</tr>
 									</thead>
@@ -162,7 +162,7 @@
 											<td>{{ patient.last_name }}</td>
 											<td>{{patient.dob}}</td>
 											<td>{{ patient.phone_number }}</td>
-											<td>12-03-2018</td>
+											<td>{{ patient.gender }}</td>
 											<td>
 												<!-- <span class="badge badge-success">Completed</span> -->
 												<a class="badge badge-success" href="{% url 'consult' patient.id %}"> consult</a>
