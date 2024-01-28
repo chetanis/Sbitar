@@ -152,29 +152,18 @@
 								<table id="tableId" class="table table-bordered table-striped">
 									<thead>
 										<tr>
-											<th class="no-sort">
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="select-all">
-													<label class="custom-control-label" for="select-all"></label>
-												</div>
-											</th>
 											<th>Appointment ID</th>
 											<th>Patient ID</th>
 											<th>Doctor Name</th>
 											<th>Date</th>
 											<th>Problem</th>
-											<th>hospitalization</th>
+											<th>Hospitalization</th>
+											<th>Status</th>
 										</tr>
 									</thead>
 									<tbody>
 										{% for appointment in appointments %}
 										<tr>
-											<td>
-												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="1">
-													<label class="custom-control-label" for="1"></label>
-												</div>
-											</td>
 											<td>{{ appointment.id }}</td>
 											<td>{{ appointment.patient.name }}</td>
 											<td>{{ appointment.doctor.name }}</td>
@@ -186,6 +175,13 @@
 												{%else%}
 												<span class="badge badge-danger">{{ appointment.hospitalization}}</span>
 												{%endif%}
+											</td>
+											<td>
+												{% if appointment.status == 'pending' %}
+												<span class="badge badge-warning">{{appointment.status}}</span>
+												{% else %}
+												<span class="badge badge-success">{{appointment.status}}</span>
+												{% endif %}
 											</td>
                                         </tr>
 										{% endfor %}
