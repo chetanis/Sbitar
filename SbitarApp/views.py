@@ -2,6 +2,7 @@ from datetime import date
 from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import render , get_object_or_404
+from django.db.models import Q
 import logging
 from .forms import DoctorForm, PatientForm,AppointmentForm, ResultForm, RoomAllotmentForm
 from .models import Appointment, Doctor, Patient, Result, RoomAllotment
@@ -170,7 +171,7 @@ def allRoomsPage(request):
 
 def allotRoom(request):
     template_path ='add-room.html'
-    appointments = Appointment.objects.filter(status='pending')
+    appointments = Appointment.objects.filter(Q(status='pending') & Q(hospitalization='yes'))
     context = {'appointments': appointments}
     if request.method == 'POST':
         form = RoomAllotmentForm(request.POST)
