@@ -43,14 +43,14 @@ def homePage(request):
     template_path ='homePage.html'
     return render(request, template_path, context)
   
+# doctors functions
 
 def allDoctorsPage(request):
     doctors = Doctor.objects.all()
     context = {'doctors': doctors}
     template_path ='doctors.html'
     return render(request, template_path, context)
-
-    
+ 
 def addDoctor(request):
     if request.method == 'POST':
         form = DoctorForm(request.POST)
@@ -73,13 +73,26 @@ def doctorDetails(request,doctor_id):
     template_path ='about-doctor.html'
     return render(request, template_path, context)
 
+def updateDoctor(request, doctor_id):
+    doctor = get_object_or_404(Doctor, id=doctor_id)
+    form = DoctorForm(request.POST, instance=doctor)
+    if form.is_valid():
+        form.save()
 
+    return  doctorDetails(request,doctor_id)
+
+def deleteDoctor(request, doctor_id):
+    doctor = Doctor.objects.get(id=doctor_id)
+    doctor.delete()
+    return allPatientsPage(request)
 
 def allPatientsPage(request):
     patients = Patient.objects.all()
     context = {'patients': patients}
     template_path ='patients.html'
     return render(request, template_path, context)
+
+# patients functions
 
 def addPatient(request):
     if request.method == 'POST':
@@ -104,15 +117,11 @@ def deletePatient(request, patient_id):
 
 def updatePatient(request, patient_id):
     patient = get_object_or_404(Patient, id=patient_id)
-    logging.debug("trying to update")
     form = PatientForm(request.POST, instance=patient)
     if form.is_valid():
         form.save()
 
     return  patientDetails(request,patient_id)
-
-
-
 
 def patientDetails(request,patient_id):
     patient = Patient.objects.get(id=patient_id)
@@ -126,6 +135,7 @@ def patientDetails(request,patient_id):
     template_path ='about-patient.html'
     return render(request, template_path, context)
 
+# appointment functions
 
 def allAppointmentsPage(request):
     appointments = Appointment.objects.all()
@@ -151,7 +161,7 @@ def addAppointments(request):
     return render(request, template_path, context)
 
 
-
+# rooomAllotment functions
 def allRoomsPage(request):
     rooms = RoomAllotment.objects.all()
     context = {'rooms': rooms}
@@ -173,7 +183,7 @@ def allotRoom(request):
             messages.error(request, 'Form submission error.')
     return render(request, template_path, context)
 
-
+# result functions
 def addResult(request):
     template_path ='result.html'
     appointments = Appointment.objects.filter(status='pending')

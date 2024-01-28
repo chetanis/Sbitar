@@ -10,6 +10,8 @@ urlpatterns = [
     path('homePage/add-doctor',views.addDoctor,name='addDoctor'),
     path('homePage/doctors',views.allDoctorsPage,name='doctors'),
     path('homePage/about-doctor/<int:doctor_id>',views.doctorDetails,name='aboutDoc'),
+    path('update-doctor/<int:doctor_id>/', views.updateDoctor, name='updateDoctor'),
+    path('delete-doctor/<int:doctor_id>/', views.deleteDoctor, name='deleteDoctor'),
 
     path('homePage/add-Patient',views.addPatient,name='addPatient'),
     path('homePage/Patients',views.allPatientsPage,name='Patients'),
